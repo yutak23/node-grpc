@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+    branches: ['*']
+
+  workflow_dispatch:
+
+jobs:
+  test-on-ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: install
+        run: yarn install
+
+      - name: test
+        run: yarn test
+
+      - name: build
+        run: yarn build
