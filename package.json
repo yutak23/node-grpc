@@ -10,6 +10,7 @@
 		"@commitlint/cli": "^17.0.3",
 		"@commitlint/config-conventional": "^17.0.3",
 		"babel-loader": "^8.2.5",
+		"clang-format": "^1.8.0",
 		"core-js": "^3.23.3",
 		"eslint": "^8.19.0",
 		"eslint-config-airbnb-base": "^15.0.0",
@@ -42,6 +43,7 @@
 	},
 	"lint-staged": {
 		"*": "npx prettier --ignore-unknown --write",
+		"*.proto": "npx clang-format --style '{ BasedOnStyle: Google }' --files ./src/protos/* -i",
 		"yarn.lock": "npx license-checker --production --failOn \"GPL;AGPL;LGPL;NGPL\" --summary"
 	},
 	"simple-git-hooks": {
