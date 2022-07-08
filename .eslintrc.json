@@ -7,7 +7,7 @@
 		"eslint:recommended",
 		"airbnb-base",
 		"plugin:jest/recommended",
-		"plugin:prettier/recommended"
+		"prettier"
 	],
 	"parserOptions": {
 		"ecmaVersion": 13
