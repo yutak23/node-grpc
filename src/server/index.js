@@ -22,8 +22,6 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 const userProto = grpc.loadPackageDefinition(packageDefinition).user;
 
 const getUser = (call, callback) => {
-	console.log(call.request);
-
 	const user = dumyUsers
 		.filter((dumyUser) => dumyUser.id === call.request.id)
 		.shift();
@@ -36,8 +34,6 @@ const getUser = (call, callback) => {
 };
 
 const listUsers = (call, callback) => {
-	console.log(call.request);
-
 	const { limit, offset } = call.request;
 
 	callback(null, {
