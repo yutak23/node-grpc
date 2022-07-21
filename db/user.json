@@ -1,0 +1,23 @@
+[
+	{
+		"id": 1,
+		"email": "yamada@example.com",
+		"full_name": "hanako yamada",
+		"created_at": 1655700591,
+		"updated_at": 1655700591
+	},
+	{
+		"id": 2,
+		"email": "suzuki@example.com",
+		"full_name": "tarou suzuki",
+		"created_at": 1655700591,
+		"updated_at": 1655700591
+	},
+	{
+		"id": 3,
+		"email": "tarou@example.com",
+		"full_name": "tarou tanaka",
+		"created_at": 1655700591,
+		"updated_at": 1655700591
+	}
+]

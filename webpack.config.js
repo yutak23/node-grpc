@@ -10,7 +10,8 @@ module.exports = {
 	mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
 	name: 'node-express',
 	entry: {
-		index: './src/index.js'
+		client: './src/client/index.js',
+		server: './src/server/index.js'
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),

@@ -4,6 +4,14 @@
 	"main": "index.js",
 	"author": "yuta-katayama-23",
 	"license": "MIT",
+	"dependencies": {
+		"@grpc/grpc-js": "^1.6.7",
+		"@grpc/proto-loader": "^0.6.13",
+		"app-root-path": "^3.0.0",
+		"camelcase-keys": "^7.0.2",
+		"express": "^4.18.1",
+		"source-map-support": "^0.5.21"
+	},
 	"devDependencies": {
 		"@babel/core": "^7.18.6",
 		"@babel/preset-env": "^7.18.6",
@@ -34,7 +42,8 @@
 		"dev": "webpack watch --node-env=development",
 		"build": "webpack --node-env=production",
 		"debug": "webpack --node-env=development",
-		"start": "nodemon dist/index.js",
+		"start:srv": "nodemon dist/server.js",
+		"start:clt": "nodemon dist/client.js",
 		"lint": "eslint src/",
 		"test": "jest",
 		"ncu": "npx ncu",

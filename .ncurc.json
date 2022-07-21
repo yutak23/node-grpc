@@ -1,1 +1,1 @@
-{ "reject": [] }
+{ "reject": ["camelcase-keys"] }
