@@ -26,7 +26,7 @@ const getUser = (call, callback) => {
 		.filter((dumyUser) => dumyUser.id === call.request.id)
 		.shift();
 
-	if (user) return callback(null, { user: { id: 1 } });
+	if (user) return callback(null, { user });
 	return callback({
 		code: grpc.status.NOT_FOUND,
 		message: 'user not found'

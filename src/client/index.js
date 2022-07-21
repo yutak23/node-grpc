@@ -13,7 +13,8 @@ router.get('/user/:id', async (req, res) => {
 		const { user } = await getUser(req.params.id);
 		res.status(200).json(user);
 	} catch (error) {
-		res.status(500).error(error);
+		console.error(error);
+		res.status(500).json({ message: error.message });
 	}
 });
 
@@ -24,7 +25,8 @@ router.get('/users', async (req, res) => {
 		const { total, users } = await listUsers(limit, offset);
 		res.status(200).json({ total, users });
 	} catch (error) {
-		res.status(500).error(error);
+		console.error(error);
+		res.status(500).json({ message: error.message });
 	}
 });
 
