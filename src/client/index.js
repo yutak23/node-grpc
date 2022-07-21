@@ -1,6 +1,6 @@
 import 'source-map-support/register';
 import express, { Router } from 'express';
-import { getUser, listUsers } from './lib/user';
+import { getUser, listUsers } from './clients/user';
 
 const app = express();
 const router = Router();
