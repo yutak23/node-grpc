@@ -1,4 +1,4 @@
-import * as assert from 'assert';
+import { strict as assert } from 'assert';
 import addUserService from './user';
 
 export default (server, dumyUsers) => {
