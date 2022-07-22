@@ -24,7 +24,7 @@ export default (server, dumyUsers) => {
 		});
 	};
 
-	const PROTO_PATH = appRoot.resolve('src/protos/user.proto');
+	const PROTO_PATH = appRoot.resolve('protos/user.proto');
 	const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 		keepCase: false,
 		longs: String,

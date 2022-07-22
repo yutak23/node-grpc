@@ -2,7 +2,7 @@ import appRoot from 'app-root-path';
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 
-const PROTO_PATH = appRoot.resolve('src/protos/user.proto');
+const PROTO_PATH = appRoot.resolve('protos/user.proto');
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 	keepCase: true,
 	longs: String,
