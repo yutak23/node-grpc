@@ -8,7 +8,7 @@ module.exports = {
 	externalsPresets: { node: true },
 	externals: [nodeExternals()],
 	mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-	name: 'node-express',
+	name: 'node-grpc',
 	entry: {
 		client: './src/client/index.js',
 		server: './src/server/index.js'

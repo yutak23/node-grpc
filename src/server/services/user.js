@@ -1,14 +1,31 @@
-import appRoot from 'app-root-path';
 import * as grpc from '@grpc/grpc-js';
-import * as protoLoader from '@grpc/proto-loader';
+import { UserService } from '../../../pbs/user_grpc_pb';
+import {
+	UserInfo,
+	GetUserResponse,
+	ListUsersResponse
+} from '../../../pbs/user_pb';
 
 export default (server, dumyUsers) => {
 	const getUser = (call, callback) => {
 		const user = dumyUsers
-			.filter((dumyUser) => dumyUser.id === call.request.id)
+			.filter((dumyUser) => dumyUser.id === call.request.getId())
 			.shift();
 
-		if (user) return callback(null, { user });
+		if (user) {
+			const userInfo = new UserInfo();
+			userInfo.setId(user.id);
+			userInfo.setEmail(user.email);
+			userInfo.setFullName(user.fullName);
+			userInfo.setCreatedAt(user.createdAt);
+			userInfo.setUpdatedAt(user.updatedAt);
+
+			const reply = new GetUserResponse();
+			reply.setUser(userInfo);
+
+			return callback(null, reply);
+		}
+
 		return callback({
 			code: grpc.status.NOT_FOUND,
 			message: 'user not found'
@@ -16,26 +33,47 @@ export default (server, dumyUsers) => {
 	};
 
 	const listUsers = (call, callback) => {
-		const { limit, offset } = call.request;
+		const limit = call.request.getLimit();
+		const offset = call.request.getOffset();
 
-		callback(null, {
-			total: dumyUsers.length,
-			users: dumyUsers.slice(offset).slice(0, limit)
+		const reply = new ListUsersResponse();
+		reply.setTotal(dumyUsers.length);
+
+		const users = dumyUsers.slice(offset).slice(0, limit);
+		users.forEach((user, index) => {
+			const userInfo = new UserInfo();
+			userInfo.setId(user.id);
+			userInfo.setEmail(user.email);
+			userInfo.setFullName(user.fullName);
+			userInfo.setCreatedAt(user.createdAt);
+			userInfo.setUpdatedAt(user.updatedAt);
+			reply.addUsers(userInfo, index);
 		});
+
+		callback(null, reply);
 	};
 
-	const PROTO_PATH = appRoot.resolve('protos/user.proto');
-	const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
-		keepCase: false,
-		longs: String,
-		enums: String,
-		defaults: true,
-		oneofs: true
-	});
-	const userProto = grpc.loadPackageDefinition(packageDefinition).user;
+	const allUsers = (call, callback) => {
+		const reply = new ListUsersResponse();
+		reply.setTotal(dumyUsers.length);
 
-	server.addService(userProto.UserService.service, {
+		dumyUsers.forEach((user, index) => {
+			const userInfo = new UserInfo([
+				user.id,
+				user.email,
+				user.fullName,
+				user.createdAt,
+				user.updatedAt
+			]);
+			reply.addUsers(userInfo, index);
+		});
+
+		callback(null, reply);
+	};
+
+	server.addService(UserService, {
 		getUser,
-		listUsers
+		listUsers,
+		allUsers
 	});
 };

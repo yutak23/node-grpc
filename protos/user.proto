@@ -2,11 +2,13 @@ syntax = "proto3";
 
 package user;
 
-import "google/protobuf/timestamp.proto";
+// import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
 
-service UserService {
+service User {
   rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
   rpc ListUsers(ListUsersRequest) returns (ListUsersResponse) {}
+  rpc AllUsers(google.protobuf.Empty) returns (ListUsersResponse) {}
 }
 
 message GetUserRequest {
@@ -14,7 +16,7 @@ message GetUserRequest {
 }
 
 message GetUserResponse {
-  User user = 1;
+  UserInfo user = 1;
 }
 
 message ListUsersRequest {
@@ -24,10 +26,10 @@ message ListUsersRequest {
 
 message ListUsersResponse {
   int32 total = 1;
-  repeated User users = 2;
+  repeated UserInfo users = 2;
 }
 
-message User {
+message UserInfo {
   int32 id = 1;
   string email = 2;
   string full_name = 3;
