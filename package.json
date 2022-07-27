@@ -47,7 +47,7 @@
 		"debug": "webpack --node-env=development",
 		"start:srv": "nodemon dist/server.js",
 		"start:clt": "nodemon dist/client.js",
-		"protoc": "npx grpc_tools_node_protoc -I ./protos --js_out=import_style=commonjs,binary:./pbs --grpc_out=grpc_js:./pbs user.proto",
+		"protoc": "npx grpc_tools_node_protoc --proto_path ./protos --js_out=import_style=commonjs,binary:./pbs --grpc_out=grpc_js:./pbs user.proto",
 		"lint": "eslint src/",
 		"test": "jest",
 		"ncu": "npx ncu",
