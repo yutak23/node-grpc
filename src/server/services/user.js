@@ -9,9 +9,13 @@ export default (server, dumyUsers) => {
 			.shift();
 
 		if (user) return callback(null, { user });
+
+		const metadata = new grpc.Metadata();
+		metadata.add('key', 'value');
 		return callback({
 			code: grpc.status.NOT_FOUND,
-			message: 'user not found'
+			message: 'user not found',
+			metadata
 		});
 	};
 

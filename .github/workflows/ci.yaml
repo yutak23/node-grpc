@@ -2,12 +2,12 @@ name: ci
 
 on:
   push:
-    branches: ['*']
+    branches: ['proto-loader-ver']
 
   workflow_dispatch:
 
 jobs:
-  test-on-ci:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,8 +16,14 @@ jobs:
       - name: install
         run: yarn install
 
+      - name: build
+        run: yarn build
+
+      - name: start gRPC server
+        run: node dist/server.js &
+
       - name: test
         run: yarn test
 
-      - name: build
-        run: yarn build
+      - name: Stop gRPC server
+        run: killall node
