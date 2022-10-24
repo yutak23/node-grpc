@@ -33,8 +33,12 @@ export default (server, dumyUsers) => {
 	};
 
 	const listUsers = (call, callback) => {
-		const limit = call.request.getLimit();
+		const limit = call.request.getLimit() || 10;
 		const offset = call.request.getOffset();
+
+		// hasLimitなどを使う時の例
+		// const limit = call.request.hasLimit() ? call.request.getLimit() : 10;
+		// const offset = call.request.hasOffset() ? call.request.getOffset() : 0;
 
 		const reply = new ListUsersResponse();
 		reply.setTotal(dumyUsers.length);

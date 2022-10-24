@@ -22,8 +22,8 @@ const getUser = (id) => {
 
 const listUsers = (limit, offset) => {
 	const request = new ListUsersRequest();
-	request.setLimit(limit);
-	request.setOffset(offset);
+	if (limit) request.setLimit(limit);
+	if (offset) request.setOffset(offset);
 
 	return new Promise((resolve, reject) => {
 		client.listUsers(request, (err, response) => {

@@ -17,6 +17,8 @@ var global = Function('return this')();
 
 var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 goog.object.extend(proto, google_protobuf_empty_pb);
+var google_protobuf_wrappers_pb = require('google-protobuf/google/protobuf/wrappers_pb.js');
+goog.object.extend(proto, google_protobuf_wrappers_pb);
 goog.exportSymbol('proto.user.GetUserRequest', null, global);
 goog.exportSymbol('proto.user.GetUserResponse', null, global);
 goog.exportSymbol('proto.user.ListUsersRequest', null, global);
@@ -434,8 +436,12 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
 	proto.user.ListUsersRequest.toObject = function (includeInstance, msg) {
 		var f,
 			obj = {
-				limit: jspb.Message.getFieldWithDefault(msg, 1, 0),
-				offset: jspb.Message.getFieldWithDefault(msg, 2, 0)
+				limit:
+					(f = msg.getLimit()) &&
+					google_protobuf_wrappers_pb.Int32Value.toObject(includeInstance, f),
+				offset:
+					(f = msg.getOffset()) &&
+					google_protobuf_wrappers_pb.Int32Value.toObject(includeInstance, f)
 			};
 
 		if (includeInstance) {
@@ -474,11 +480,19 @@ proto.user.ListUsersRequest.deserializeBinaryFromReader = function (
 		var field = reader.getFieldNumber();
 		switch (field) {
 			case 1:
-				var value = /** @type {number} */ (reader.readInt32());
+				var value = new google_protobuf_wrappers_pb.Int32Value();
+				reader.readMessage(
+					value,
+					google_protobuf_wrappers_pb.Int32Value.deserializeBinaryFromReader
+				);
 				msg.setLimit(value);
 				break;
 			case 2:
-				var value = /** @type {number} */ (reader.readInt32());
+				var value = new google_protobuf_wrappers_pb.Int32Value();
+				reader.readMessage(
+					value,
+					google_protobuf_wrappers_pb.Int32Value.deserializeBinaryFromReader
+				);
 				msg.setOffset(value);
 				break;
 			default:
@@ -512,45 +526,97 @@ proto.user.ListUsersRequest.serializeBinaryToWriter = function (
 ) {
 	var f = undefined;
 	f = message.getLimit();
-	if (f !== 0) {
-		writer.writeInt32(1, f);
+	if (f != null) {
+		writer.writeMessage(
+			1,
+			f,
+			google_protobuf_wrappers_pb.Int32Value.serializeBinaryToWriter
+		);
 	}
 	f = message.getOffset();
-	if (f !== 0) {
-		writer.writeInt32(2, f);
+	if (f != null) {
+		writer.writeMessage(
+			2,
+			f,
+			google_protobuf_wrappers_pb.Int32Value.serializeBinaryToWriter
+		);
 	}
 };
 
 /**
- * optional int32 limit = 1;
- * @return {number}
+ * optional google.protobuf.Int32Value limit = 1;
+ * @return {?proto.google.protobuf.Int32Value}
  */
 proto.user.ListUsersRequest.prototype.getLimit = function () {
-	return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+	return /** @type{?proto.google.protobuf.Int32Value} */ (
+		jspb.Message.getWrapperField(
+			this,
+			google_protobuf_wrappers_pb.Int32Value,
+			1
+		)
+	);
 };
 
 /**
- * @param {number} value
+ * @param {?proto.google.protobuf.Int32Value|undefined} value
  * @return {!proto.user.ListUsersRequest} returns this
  */
 proto.user.ListUsersRequest.prototype.setLimit = function (value) {
-	return jspb.Message.setProto3IntField(this, 1, value);
+	return jspb.Message.setWrapperField(this, 1, value);
 };
 
 /**
- * optional int32 offset = 2;
- * @return {number}
+ * Clears the message field making it undefined.
+ * @return {!proto.user.ListUsersRequest} returns this
+ */
+proto.user.ListUsersRequest.prototype.clearLimit = function () {
+	return this.setLimit(undefined);
+};
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.user.ListUsersRequest.prototype.hasLimit = function () {
+	return jspb.Message.getField(this, 1) != null;
+};
+
+/**
+ * optional google.protobuf.Int32Value offset = 2;
+ * @return {?proto.google.protobuf.Int32Value}
  */
 proto.user.ListUsersRequest.prototype.getOffset = function () {
-	return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+	return /** @type{?proto.google.protobuf.Int32Value} */ (
+		jspb.Message.getWrapperField(
+			this,
+			google_protobuf_wrappers_pb.Int32Value,
+			2
+		)
+	);
 };
 
 /**
- * @param {number} value
+ * @param {?proto.google.protobuf.Int32Value|undefined} value
  * @return {!proto.user.ListUsersRequest} returns this
  */
 proto.user.ListUsersRequest.prototype.setOffset = function (value) {
-	return jspb.Message.setProto3IntField(this, 2, value);
+	return jspb.Message.setWrapperField(this, 2, value);
+};
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.user.ListUsersRequest} returns this
+ */
+proto.user.ListUsersRequest.prototype.clearOffset = function () {
+	return this.setOffset(undefined);
+};
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.user.ListUsersRequest.prototype.hasOffset = function () {
+	return jspb.Message.getField(this, 2) != null;
 };
 
 /**
