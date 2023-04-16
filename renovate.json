@@ -4,10 +4,7 @@
 	"labels": ["renovate"],
 	"enabledManagers": ["npm"],
 	"separateMultipleMajor": true,
-	"packageRules": [
-		{
-			"matchUpdateTypes": ["minor"],
-			"groupName": "minor/patch update for all dependencies"
-		}
-	]
+	"minor": {
+		"groupName": "minor/patch update for all dependencies"
+	}
 }
