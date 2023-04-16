@@ -1,4 +1,6 @@
 {
+	"platform": "github",
+	"repositories": ["yuta-katayama-23/node-grpc"],
 	"label": "renovate",
 	"major": { "automerge": false },
 	"minor": { "automerge": false },
