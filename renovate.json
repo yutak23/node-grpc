@@ -5,5 +5,5 @@
 	"enabledManagers": ["npm"],
 	"separateMultipleMajor": true,
 	"prConcurrentLimit": 0,
-	"major": { "labels": ["update_major"] }
+	"major": { "labels": ["renovate", "update_major"] }
 }
