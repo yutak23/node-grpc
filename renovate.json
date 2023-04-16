@@ -1,10 +1,7 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:base"],
+	"extends": ["config:base", "group:allNonMajor"],
 	"labels": ["renovate"],
 	"enabledManagers": ["npm"],
-	"separateMultipleMajor": true,
-	"minor": {
-		"groupName": "all dependencies"
-	}
+	"separateMultipleMajor": true
 }
