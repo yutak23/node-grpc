@@ -1,4 +1,5 @@
 {
+	"extends": ["config:base"],
 	"platform": "github",
 	"repositories": ["yuta-katayama-23/node-grpc"],
 	"labels": ["renovate"],
