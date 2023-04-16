@@ -5,9 +5,9 @@
 	"major": { "automerge": false },
 	"minor": { "automerge": false },
 	"patch": { "automerge": false },
-	"allowedPostUpgradeCommands": ["^eslint --fix$"],
+	"allowedPostUpgradeCommands": ["^yarn lint:fix$"],
 	"postUpgradeTasks": {
-		"commands": ["eslint --fix"],
+		"commands": ["yarn lint:fix"],
 		"fileFilters": ["*"],
 		"executionMode": "update"
 	}
