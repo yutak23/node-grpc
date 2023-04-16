@@ -3,5 +3,7 @@
 	"extends": ["config:base", "group:allNonMajor"],
 	"labels": ["renovate"],
 	"enabledManagers": ["npm"],
-	"separateMultipleMajor": true
+	"separateMultipleMajor": true,
+	"prConcurrentLimit": 0,
+	"major": { "labels": ["update_major"] }
 }
