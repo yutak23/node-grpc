@@ -1,0 +1,12 @@
+{
+	"label": "renovate",
+	"major": { "automerge": false },
+	"minor": { "automerge": false },
+	"patch": { "automerge": false },
+	"allowedPostUpgradeCommands": ["^eslint --fix$"],
+	"postUpgradeTasks": {
+		"commands": ["eslint --fix"],
+		"fileFilters": ["*"],
+		"executionMode": "update"
+	}
+}
