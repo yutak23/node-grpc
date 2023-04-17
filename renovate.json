@@ -1,9 +1,10 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:base", "group:allNonMajor"],
+	"extends": ["config:base", "group:allNonMajor", "schedule:earlyMondays"],
 	"labels": ["renovate"],
 	"enabledManagers": ["npm"],
 	"separateMultipleMajor": true,
 	"prConcurrentLimit": 0,
+	"prHourlyLimit": 0,
 	"major": { "labels": ["renovate", "update_major"] }
 }
