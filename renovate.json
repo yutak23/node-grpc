@@ -5,8 +5,7 @@
 		"group:allNonMajor",
 		":separateMultipleMajorReleases",
 		":prConcurrentLimitNone",
-		":prHourlyLimitNone",
-		":doNotPinPackage"
+		":prHourlyLimitNone"
 	],
 	"labels": ["renovate"],
 	"enabledManagers": ["npm"],
