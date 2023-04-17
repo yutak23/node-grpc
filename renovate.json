@@ -4,6 +4,7 @@
 		"config:base",
 		"group:allNonMajor",
 		":separateMultipleMajorReleases",
+		"schedule:daily",
 		":prConcurrentLimitNone",
 		":prHourlyLimitNone"
 	],
@@ -17,5 +18,6 @@
 			"matchUpdateTypes": ["minor", "patch"],
 			"automerge": true
 		}
-	]
+	],
+	"ignoreDeps": ["camelcase-keys"]
 }
