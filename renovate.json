@@ -6,7 +6,8 @@
 		":separateMultipleMajorReleases",
 		"schedule:daily",
 		":prConcurrentLimitNone",
-		":prHourlyLimitNone"
+		":prHourlyLimitNone",
+		":timezone(Asia/Tokyo)"
 	],
 	"labels": ["renovate"],
 	"enabledManagers": ["npm"],
